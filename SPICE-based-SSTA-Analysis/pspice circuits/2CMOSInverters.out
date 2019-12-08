@@ -1,0 +1,552 @@
+
+**** 07/12/18 00:23:58 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\2CMOSInverters.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jul 12 00:23:55 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V3 1 100 1 
+.MC 100 DC V([Vout]) YMAX
++  OUTPUT ALL
+.OP 
+.LIB "C:\Users\user\Documents\2CMOSInverters.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "2CMOSInverters.net"
+
+**** INCLUDING 2CMOSInverters.net ****
+* Schematics Netlist *
+
+
+
+V_V1         $N_0001 0 5V
+V_V2         $N_0002 0 5V
+V_V3         Vin 0 DC 0  
+M_M1         $N_0003 Vin 0 0 MbreakN-X           
+M_M4         $N_0002 $N_0003 Vout $N_0002 MbreakP-X1           
+M_M2         Vout $N_0003 0 0 MbreakN-X1           
+M_M3         $N_0001 Vin $N_0003 $N_0001 MbreakP-X           
+
+**** RESUMING 2CMOSInverters.cir ****
+.INC "2CMOSInverters.als"
+
+
+
+**** INCLUDING 2CMOSInverters.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V1            V1(+=$N_0001 -=0 )
+V_V2            V2(+=$N_0002 -=0 )
+V_V3            V3(+=Vin -=0 )
+M_M1            M1(d=$N_0003 g=Vin s=0 b=0 )
+M_M4            M4(d=$N_0002 g=$N_0003 s=Vout b=$N_0002 )
+M_M2            M2(d=Vout g=$N_0003 s=0 b=0 )
+M_M3            M3(d=$N_0001 g=Vin s=$N_0003 b=$N_0001 )
+_    _(Vin=Vin)
+_    _(Vout=Vout)
+.ENDALIASES
+
+
+**** RESUMING 2CMOSInverters.cir ****
+.probe
+
+
+.END
+
+WARNING -- Library file C:\Users\user\Documents\2CMOSInverters.lib has changed since index file 2CMOSInverters.ind was created.
+WARNING -- The timestamp changed from Wed Jul 11 23:48:09 2018 to Thu Jul 12 00:20:06 2018.
+Making new index file 2CMOSInverters.ind for library file 2CMOSInverters.lib
+Index has 4 entries from 1 file(s).
+
+**** 07/12/18 00:23:58 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\2CMOSInverters.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MbreakN-X       MbreakP-X1      MbreakN-X1      MbreakP-X       
+               NMOS            PMOS            NMOS            PMOS            
+       LEVEL    1               1               1               1            
+           L    1.000000E-06    1.000000E-06    1.000000E-06    1.000000E-06 
+           W   10.000000E-06   10.000000E-06   10.000000E-06   10.000000E-06 
+         VTO    1.532          -1.532           1.532          -1.532        
+          KP   20.718860E-06   20.718860E-06   20.718860E-06   20.718860E-06 
+       GAMMA    0               0               0               0            
+         PHI     .6              .6              .6              .6          
+      LAMBDA    0               0               0               0            
+          IS   10.000000E-15   10.000000E-15   10.000000E-15   10.000000E-15 
+          JS    0               0               0               0            
+          PB     .8              .8              .8              .8          
+        PBSW     .8              .8              .8              .8          
+          CJ    0               0               0               0            
+        CJSW    0               0               0               0            
+        CGSO    0               0               0               0            
+        CGDO    0               0               0               0            
+        CGBO    0               0               0               0            
+         TOX  100.000000E-09  100.000000E-09  100.000000E-09  100.000000E-09 
+          XJ    0               0               0               0            
+       UCRIT   10.000000E+03   10.000000E+03   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1               1               1            
+         VFB    0               0               0               0            
+        LETA    0               0               0               0            
+        WETA    0               0               0               0            
+          U0    0               0               0               0            
+        TEMP    0               0               0               0            
+         VDD    0               0               0               0            
+       XPART    0               0               0               0            
+
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING MbreakN-X
+                       M_M1            
+              L      1.0000E-06
+              W      1.0000E-05
+            VTO      1.5320E+00
+            TOX      1.0000E-07
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING MbreakP-X1
+                       M_M4            
+              L      1.0000E-06
+              W      1.0000E-05
+            VTO     -1.5320E+00
+            TOX      1.0000E-07
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING MbreakN-X1
+                       M_M2            
+              L      1.0000E-06
+              W      1.0000E-05
+            VTO      1.5320E+00
+            TOX      1.0000E-07
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING MbreakP-X
+                       M_M3            
+              L      1.0000E-06
+              W      1.0000E-05
+            VTO     -1.5320E+00
+            TOX      1.0000E-07
+
+**** 07/12/18 00:23:58 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\2CMOSInverters.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO NOMINAL  
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  Vin)    0.0000  ( Vout) 6.973E-09  ($N_0001)    5.0000                       
+
+($N_0002)    5.0000                   ($N_0003)    5.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1        -5.010E-12
+    V_V2        -5.010E-12
+    V_V3         0.000E+00
+
+    TOTAL POWER DISSIPATION   5.01E-11  WATTS
+
+
+**** 07/12/18 00:23:58 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\2CMOSInverters.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO NOMINAL  
+
+******************************************************************************
+
+
+
+
+
+
+**** MOSFETS
+
+
+NAME         M_M1        M_M4        M_M2        M_M3      
+MODEL        MbreakN-X   MbreakP-X1  MbreakN-X1  MbreakP-X 
+ID           5.01E-12    0.00E+00    5.01E-12    5.01E-12 
+VGS          0.00E+00    5.00E+00    5.00E+00   -5.00E+00 
+VDS          5.00E+00    5.00E+00    6.97E-09    6.97E-09 
+VBS          0.00E+00    5.00E+00    0.00E+00    6.97E-09 
+VTH          1.53E+00   -1.53E+00    1.53E+00   -1.53E+00 
+VDSAT        0.00E+00    0.00E+00    3.47E+00   -3.47E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00   -1.00E+00   -1.00E+00 
+GM           0.00E+00    0.00E+00    1.44E-12    1.44E-12 
+GDS          0.00E+00    0.00E+00    7.19E-04    7.19E-04 
+GMB          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGSOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGDOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGBOV        0.00E+00    0.00E+00    0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00    1.73E-15    1.73E-15 
+CGD          0.00E+00    0.00E+00    1.73E-15    1.73E-15 
+CGB          3.45E-15    3.45E-15    0.00E+00    0.00E+00 
+**** 07/12/18 00:23:59 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\2CMOSInverters.sch
+
+
+ ****     SORTED DEVIATIONS OF V(Vout)     TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO SUMMARY
+
+******************************************************************************
+
+
+
+
+
+Mean Deviation =  178.0200E-12
+Sigma          =  803.4100E-12
+
+ RUN                    MAX DEVIATION FROM NOMINAL
+
+Pass    8              2.3359E-09  (2.91 sigma)  higher  at V_V3 =    2     
+                        ( 132.76% of Nominal)
+
+Pass   13              1.9037E-09  (2.37 sigma)  higher  at V_V3 =    2     
+                        ( 126.7 % of Nominal)
+
+Pass   88              1.8621E-09  (2.32 sigma)  higher  at V_V3 =    2     
+                        ( 126.12% of Nominal)
+
+Pass   50              1.6498E-09  (2.05 sigma)  higher  at V_V3 =    2     
+                        ( 123.14% of Nominal)
+
+Pass   36              1.6465E-09  (2.05 sigma)  higher  at V_V3 =    2     
+                        ( 123.09% of Nominal)
+
+Pass   30              1.6021E-09  (1.99 sigma)  higher  at V_V3 =    2     
+                        ( 122.47% of Nominal)
+
+Pass   66              1.5765E-09  (1.96 sigma)  higher  at V_V3 =    2     
+                        ( 122.11% of Nominal)
+
+Pass   71              1.5763E-09  (1.96 sigma)  higher  at V_V3 =    2     
+                        ( 122.11% of Nominal)
+
+Pass   97              1.5547E-09  (1.94 sigma)  higher  at V_V3 =    2     
+                        ( 121.8 % of Nominal)
+
+Pass   47              1.3652E-09  (1.70 sigma)  lower   at V_V3 =    2     
+                        (  80.853% of Nominal)
+
+Pass   21              1.2821E-09  (1.60 sigma)  higher  at V_V3 =    1     
+                        ( 118.39% of Nominal)
+
+Pass    5              1.2776E-09  (1.59 sigma)  higher  at V_V3 =    2     
+                        ( 117.92% of Nominal)
+
+Pass   58              1.2513E-09  (1.56 sigma)  lower   at V_V3 =    2     
+                        (  82.45 % of Nominal)
+
+Pass   25              1.2112E-09  (1.51 sigma)  higher  at V_V3 =    1     
+                        ( 117.37% of Nominal)
+
+Pass   90              1.2109E-09  (1.51 sigma)  higher  at V_V3 =    1     
+                        ( 117.37% of Nominal)
+
+Pass   51              1.2056E-09  (1.50 sigma)  higher  at V_V3 =    1     
+                        ( 117.29% of Nominal)
+
+Pass   67              1.1604E-09  (1.44 sigma)  higher  at V_V3 =    1     
+                        ( 116.64% of Nominal)
+
+Pass   83              1.1514E-09  (1.43 sigma)  lower   at V_V3 =    2     
+                        (  83.851% of Nominal)
+
+Pass   43              1.1503E-09  (1.43 sigma)  higher  at V_V3 =    1     
+                        ( 116.5 % of Nominal)
+
+Pass   40              1.0990E-09  (1.37 sigma)  higher  at V_V3 =    2     
+                        ( 115.41% of Nominal)
+
+Pass   68              1.0893E-09  (1.36 sigma)  higher  at V_V3 =    1     
+                        ( 115.62% of Nominal)
+
+Pass   32              1.0609E-09  (1.32 sigma)  lower   at V_V3 =    2     
+                        (  85.121% of Nominal)
+
+Pass   29              1.0367E-09  (1.29 sigma)  higher  at V_V3 =    2     
+                        ( 114.54% of Nominal)
+
+Pass   87              1.0359E-09  (1.29 sigma)  higher  at V_V3 =    1     
+                        ( 114.86% of Nominal)
+
+Pass    2            993.5100E-12  (1.24 sigma)  lower   at V_V3 =    2     
+                        (  86.066% of Nominal)
+
+Pass   53            943.8900E-12  (1.17 sigma)  lower   at V_V3 =    1     
+                        (  86.463% of Nominal)
+
+Pass   45            879.9400E-12  (1.10 sigma)  lower   at V_V3 =    1     
+                        (  87.38 % of Nominal)
+
+Pass   72            859.3500E-12  (1.07 sigma)  higher  at V_V3 =    2     
+                        ( 112.05% of Nominal)
+
+Pass   17            774.0500E-12  ( .96 sigma)  lower   at V_V3 =    1     
+                        (  88.899% of Nominal)
+
+Pass   76            768.3100E-12  ( .96 sigma)  higher  at V_V3 =    2     
+                        ( 110.78% of Nominal)
+
+Pass   85            757.0500E-12  ( .94 sigma)  lower   at V_V3 =    2     
+                        (  89.382% of Nominal)
+
+Pass   42            718.0600E-12  ( .89 sigma)  lower   at V_V3 =    2     
+                        (  89.929% of Nominal)
+
+Pass   18            703.3100E-12  ( .88 sigma)  lower   at V_V3 =    1     
+                        (  89.913% of Nominal)
+
+Pass   49            699.6100E-12  ( .87 sigma)  higher  at V_V3 =    2     
+                        ( 109.81% of Nominal)
+
+Pass   54            693.9100E-12  ( .86 sigma)  lower   at V_V3 =    1     
+                        (  90.048% of Nominal)
+
+Pass   22            662.1600E-12  ( .82 sigma)  higher  at V_V3 =    1     
+                        ( 109.5 % of Nominal)
+
+Pass    4            660.4500E-12  ( .82 sigma)  lower   at V_V3 =    1     
+                        (  90.528% of Nominal)
+
+Pass   77            659.4500E-12  ( .82 sigma)  lower   at V_V3 =    2     
+                        (  90.751% of Nominal)
+
+Pass   39            652.7500E-12  ( .81 sigma)  lower   at V_V3 =    1     
+                        (  90.638% of Nominal)
+
+Pass   64            628.6100E-12  ( .78 sigma)  lower   at V_V3 =    1     
+                        (  90.985% of Nominal)
+
+Pass   52            626.9100E-12  ( .78 sigma)  higher  at V_V3 =    1     
+                        ( 108.99% of Nominal)
+
+Pass   38            626.1600E-12  ( .78 sigma)  higher  at V_V3 =    2     
+                        ( 108.78% of Nominal)
+
+Pass   82            624.7100E-12  ( .78 sigma)  higher  at V_V3 =    1     
+                        ( 108.96% of Nominal)
+
+Pass    9            611.1300E-12  ( .76 sigma)  higher  at V_V3 =    1     
+                        ( 108.76% of Nominal)
+
+Pass   44            610.7800E-12  ( .76 sigma)  lower   at V_V3 =    1     
+                        (  91.24 % of Nominal)
+
+Pass   20            609.3000E-12  ( .76 sigma)  higher  at V_V3 =    1     
+                        ( 108.74% of Nominal)
+
+Pass   92            578.0300E-12  ( .72 sigma)  lower   at V_V3 =    1     
+                        (  91.71 % of Nominal)
+
+Pass   23            575.8500E-12  ( .72 sigma)  lower   at V_V3 =    2     
+                        (  91.924% of Nominal)
+
+Pass   96            566.8400E-12  ( .71 sigma)  lower   at V_V3 =    2     
+                        (  92.05 % of Nominal)
+
+Pass   16            563.9500E-12  ( .70 sigma)  lower   at V_V3 =    1     
+                        (  91.912% of Nominal)
+
+Pass   94            559.0600E-12  ( .70 sigma)  lower   at V_V3 =    2     
+                        (  92.159% of Nominal)
+
+Pass  100            550.7400E-12  ( .69 sigma)  higher  at V_V3 =    1     
+                        ( 107.9 % of Nominal)
+
+Pass   98            534.3400E-12  ( .67 sigma)  lower   at V_V3 =    2     
+                        (  92.506% of Nominal)
+
+Pass   11            533.6100E-12  ( .66 sigma)  higher  at V_V3 =    2     
+                        ( 107.48% of Nominal)
+
+Pass   41            532.3600E-12  ( .66 sigma)  higher  at V_V3 =    2     
+                        ( 107.47% of Nominal)
+
+Pass   59            524.1200E-12  ( .65 sigma)  lower   at V_V3 =    2     
+                        (  92.649% of Nominal)
+
+Pass   62            517.7900E-12  ( .64 sigma)  lower   at V_V3 =    2     
+                        (  92.738% of Nominal)
+
+Pass   37            509.8500E-12  ( .63 sigma)  higher  at V_V3 =    2     
+                        ( 107.15% of Nominal)
+
+Pass   99            486.1000E-12  ( .61 sigma)  higher  at V_V3 =    2     
+                        ( 106.82% of Nominal)
+
+Pass    7            446.4900E-12  ( .56 sigma)  higher  at V_V3 =    2     
+                        ( 106.26% of Nominal)
+
+Pass   65            426.5900E-12  ( .53 sigma)  lower   at V_V3 =    1     
+                        (  93.882% of Nominal)
+
+Pass   46            392.8200E-12  ( .49 sigma)  higher  at V_V3 =    2     
+                        ( 105.51% of Nominal)
+
+Pass   93            387.6300E-12  ( .48 sigma)  lower   at V_V3 =    1     
+                        (  94.441% of Nominal)
+
+Pass   31            382.3100E-12  ( .48 sigma)  lower   at V_V3 =    1     
+                        (  94.517% of Nominal)
+
+Pass   74            378.8000E-12  ( .47 sigma)  lower   at V_V3 =    2     
+                        (  94.687% of Nominal)
+
+Pass   27            370.7300E-12  ( .46 sigma)  lower   at V_V3 =    2     
+                        (  94.8  % of Nominal)
+
+Pass   57            364.3900E-12  ( .45 sigma)  higher  at V_V3 =    2     
+                        ( 105.11% of Nominal)
+
+Pass   48            359.9600E-12  ( .45 sigma)  lower   at V_V3 =    1     
+                        (  94.837% of Nominal)
+
+Pass   14            354.3200E-12  ( .44 sigma)  higher  at V_V3 =    1     
+                        ( 105.08% of Nominal)
+
+Pass   28            352.3800E-12  ( .44 sigma)  higher  at V_V3 =    2     
+                        ( 104.94% of Nominal)
+
+Pass   70            342.2800E-12  ( .43 sigma)  lower   at V_V3 =    2     
+                        (  95.199% of Nominal)
+
+Pass   91            325.6500E-12  ( .41 sigma)  lower   at V_V3 =    1     
+                        (  95.33 % of Nominal)
+
+Pass   10            323.3500E-12  ( .40 sigma)  lower   at V_V3 =    2     
+                        (  95.465% of Nominal)
+
+Pass   33            303.8300E-12  ( .38 sigma)  lower   at V_V3 =    2     
+                        (  95.739% of Nominal)
+
+Pass    6            299.7200E-12  ( .37 sigma)  lower   at V_V3 =    1     
+                        (  95.701% of Nominal)
+
+Pass   60            283.8500E-12  ( .35 sigma)  higher  at V_V3 =    2     
+                        ( 103.98% of Nominal)
+
+Pass   84            279.7200E-12  ( .35 sigma)  higher  at V_V3 =    2     
+                        ( 103.92% of Nominal)
+
+Pass   95            266.2600E-12  ( .33 sigma)  higher  at V_V3 =    2     
+                        ( 103.73% of Nominal)
+
+Pass   81            263.4000E-12  ( .33 sigma)  higher  at V_V3 =    2     
+                        ( 103.69% of Nominal)
+
+Pass   89            262.2100E-12  ( .33 sigma)  higher  at V_V3 =    2     
+                        ( 103.68% of Nominal)
+
+Pass   69            237.6800E-12  ( .30 sigma)  higher  at V_V3 =    1     
+                        ( 103.41% of Nominal)
+
+Pass   78            220.4100E-12  ( .27 sigma)  lower   at V_V3 =    2     
+                        (  96.909% of Nominal)
+
+Pass   55            219.2700E-12  ( .27 sigma)  lower   at V_V3 =    2     
+                        (  96.925% of Nominal)
+
+Pass   34            215.1400E-12  ( .27 sigma)  lower   at V_V3 =    2     
+                        (  96.983% of Nominal)
+
+Pass   75            189.9400E-12  ( .24 sigma)  higher  at V_V3 =    2     
+                        ( 102.66% of Nominal)
+
+Pass   80            181.4300E-12  ( .23 sigma)  lower   at V_V3 =    1     
+                        (  97.398% of Nominal)
+
+Pass   86            172.3000E-12  ( .21 sigma)  higher  at V_V3 =    1     
+                        ( 102.47% of Nominal)
+
+Pass   24            168.3500E-12  ( .21 sigma)  higher  at V_V3 =    1     
+                        ( 102.41% of Nominal)
+
+Pass   12            165.5000E-12  ( .21 sigma)  higher  at V_V3 =    1     
+                        ( 102.37% of Nominal)
+
+Pass   73            162.3300E-12  ( .20 sigma)  lower   at V_V3 =    2     
+                        (  97.723% of Nominal)
+
+Pass   79            151.8000E-12  ( .19 sigma)  lower   at V_V3 =    1     
+                        (  97.823% of Nominal)
+
+Pass   56            133.7800E-12  ( .17 sigma)  lower   at V_V3 =    1     
+                        (  98.081% of Nominal)
+
+Pass   15            127.5900E-12  ( .16 sigma)  higher  at V_V3 =    1     
+                        ( 101.83% of Nominal)
+
+Pass   19            105.9300E-12  ( .13 sigma)  lower   at V_V3 =    2     
+                        (  98.514% of Nominal)
+
+Pass   26             87.8910E-12  ( .11 sigma)  higher  at V_V3 =    1     
+                        ( 101.26% of Nominal)
+
+Pass   35             78.3600E-12  ( .10 sigma)  higher  at V_V3 =    2     
+                        ( 101.1 % of Nominal)
+
+Pass   63             77.7250E-12  ( .10 sigma)  higher  at V_V3 =    1     
+                        ( 101.11% of Nominal)
+
+Pass   61             59.2470E-12  ( .07 sigma)  higher  at V_V3 =    1     
+                        ( 100.85% of Nominal)
+
+Pass    3             41.8360E-12  ( .05 sigma)  higher  at V_V3 =    2     
+                        ( 100.59% of Nominal)
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .55
+

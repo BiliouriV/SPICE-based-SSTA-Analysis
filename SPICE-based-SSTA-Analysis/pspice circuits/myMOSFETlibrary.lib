@@ -1,0 +1,24 @@
+.model MbreakN-Xw NMOS( W=10u DEV=10%, L=1u, Tox=100n, VTo=1.532) 
+*$
+.model MbreakP-Xw PMOS( W=10u DEV=10%, L=1u, Tox=100n, VTo=-1.532) 
+*$
+.model MbreakN-Xl NMOS( W=10u, L=1u DEV=10%, Tox=100n, VTo=1.532) 
+*$
+.model MbreakP-X PMOS( W=10u, L=1u DEV=10%, Tox=100n, VTo=-1.532) 
+*$
+.model MbreakN-X NMOS( W=10u, L=1u, Tox=100n DEV=20%, VTo=1.532) 
+*$
+.model MbreakP-Xtox PMOS( W=10u, L=1u, Tox=100n DEV=20%, VTo=-1.532) 
+*$
+.model MbreakN-Xtox NMOS( W=10u, L=1u, Tox=100n DEV=20%, VTo=1.532) 
+*$
+.model MbreakP-Xl PMOS( W=10u, L=1u DEV=10%, Tox=100n, VTo=-1.532) 
+*$
+.model MbreakN-X1vto NMOS( W=10u, L=1u, Tox=100n , VTo=1.532 DEV=20%) 
+*$
+.model MbreakP-Xvto PMOS( W=10u, L=1u, Tox=100n , VTo=-1.532 DEV=20%) 
+*$
+.model MbreakN-Xvto NMOS( W=10u, L=1u, Tox=100n , VTo=1.532 DEV=20%) 
+*$
+.model Rbreak-X RES( R=1 DEV=10%) 
+*$

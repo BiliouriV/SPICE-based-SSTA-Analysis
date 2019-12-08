@@ -1,0 +1,8 @@
+* Schematics Netlist *
+
+
+
+V_V1         Vin 0   
+M_M2         $N_0001 Vin Vout $N_0001 MbreakP           
+V_V2         $N_0001 0   
+M_M1         Vout Vin 0 0 MbreakN           

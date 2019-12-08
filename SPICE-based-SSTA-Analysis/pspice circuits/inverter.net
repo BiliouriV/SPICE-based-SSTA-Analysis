@@ -1,0 +1,12 @@
+* Schematics Netlist *
+
+
+
+V_V5         $N_0001 0 DC 5  
+V_V10         $N_0002 0 DC 5  
+M_M2         $N_0001 $N_0002 Vout $N_0001 MbreakP-X  
++ L=1u  
++ W=10u         
+M_M1         Vout $N_0002 0 0 MbreakN-X1  
++ L=1u  
++ W=10u         

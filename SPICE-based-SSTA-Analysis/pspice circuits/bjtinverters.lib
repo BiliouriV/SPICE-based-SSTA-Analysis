@@ -1,0 +1,10 @@
+.model QbreakP-X PNP( BF=75 DEV=25%) 
+*$
+.model QbreakN-X NPN( BF=75 DEV=30%) 
+*$
+.model QbreakN-X1 NPN( BF=75 DEV=25%) 
+*$
+.model QbreakP-X1 PNP( BF=75 DEV=25%) 
+*$
+.model Rbreak RES R=1 DEV=10% 
+*$

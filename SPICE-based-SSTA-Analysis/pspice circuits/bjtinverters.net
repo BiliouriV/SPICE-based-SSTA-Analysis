@@ -1,0 +1,12 @@
+* Schematics Netlist *
+
+
+
+V_Vin         $N_0001 0   
+R_RC1         $N_0003 $N_0002 Rbreak 1k
+R_RC2         Vout $N_0002 Rbreak 1k
+V_VCC         0 $N_0002 5V
+R_RB1         $N_0004 $N_0001 Rbreak 1k
+R_RB2         $N_0005 $N_0003 Rbreak 1k
+Q_Q1         $N_0003 $N_0004 0 QbreakN-X 
+Q_Q2         Vout $N_0005 0 QbreakN-X 

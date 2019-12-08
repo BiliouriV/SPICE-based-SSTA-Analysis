@@ -1,0 +1,26 @@
+**Simple CMOS Inverter ~ W parameter **
+
+.lib  ...  **file location**
+
+**Circuit Input Netlist**
+
+.global vdd gnd
+
+**Power Sources**
+VDD vdd 0 5
+VIN in 0 5 0.1
+
+**Transistors**
+M0 out in vdd vdd pmos L=10e-9 W=100e-9 DEV=10% **Change W Parameter**
+**+other parameters of transistor models**
+M1 out in gnd gnd nmos L=10e-9 W=100e-9 DEV=10% **Change W Parameter**
+**+other parameters of transistor models**
+
+**Analysis DC SWEEP - MONTE CARLO**
+.dc VIN 0 5 0.1 <SWEEP MONTE=20>
+
+**Output**
+
+.plot V(out)
+
+.END

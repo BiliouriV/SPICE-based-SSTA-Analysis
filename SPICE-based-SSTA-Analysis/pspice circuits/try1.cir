@@ -1,0 +1,23 @@
+* C:\Users\user\Documents\try1.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Jun 30 02:41:31 2018
+
+
+
+** Analysis setup **
+.MC 10 TRAN V([Vout]) YMAX
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "try1.net"
+.INC "try1.als"
+
+
+.probe
+
+
+.END

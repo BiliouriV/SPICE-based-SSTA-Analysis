@@ -1,0 +1,6 @@
+.model MbreakP-X PMOS(LEVEL=2VTo=-1.4 Kp=0.3m LAMBDA=0.05) 
+*$
+.model MbreakN-X NMOS(LEVEL=2VTo=1.4 Kp=0.6m LAMBDA=0.05) 
+*$
+.model MbreakN-X1 NMOS(LEVEL=2VTo=1.4 Kp=0.6m LAMBDA=0.05) 
+*$

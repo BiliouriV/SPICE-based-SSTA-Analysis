@@ -1,0 +1,26 @@
+* C:\Users\user\Documents\2CMOSInverters.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jul 12 00:23:55 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V3 1 100 1 
+.MC 100 DC V([Vout]) YMAX
++  OUTPUT ALL
+.OP 
+.LIB "C:\Users\user\Documents\2CMOSInverters.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "2CMOSInverters.net"
+.INC "2CMOSInverters.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,24 @@
+**Simple CMOS Inverter**
+
+.lib  ...  **file location**
+
+**Circuit Input Netlist**
+
+.global
+
+**Power Sources**
+VDD vdd 0 5
+VIN in 0 5 0.1
+
+**Transistors**
+M0 out in vdd vdd pmos L=10e-9 DEV=10% W=100e-9 **Change L Parameter**
+M1 out in gnd gnd nmos L=10e-9 DEV=10% W=100e-9 **Change L Parameter**
+
+**Analysis DC SWEEP - MONTE CARLO**
+.dc VIN 0 5 0.1 <SWEEP MONTE=20>
+
+**Output**
+
+.plot max(V(out))
+
+.END

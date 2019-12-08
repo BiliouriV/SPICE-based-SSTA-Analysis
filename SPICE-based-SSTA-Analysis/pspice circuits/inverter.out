@@ -1,0 +1,77 @@
+
+**** 06/30/18 21:36:09 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\inverter.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Jun 30 21:36:03 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V5 0 10 1 
+.MC 10 DC V([Vout]) YMAX
+.OP 
+.LIB "C:\Users\user\Documents\inverter.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "inverter.net"
+
+**** INCLUDING inverter.net ****
+* Schematics Netlist *
+
+
+
+V_V5         $N_0001 0 DC 5  
+V_V10         $N_0002 0 DC 5  
+M_M2         $N_0001 $N_0002 Vout $N_0001 MbreakP-X  
++ L=1u  
++ W=10u         
+M_M1         Vout $N_0002 0 0 MbreakN-X1  
++ L=1u  
++ W=10u         
+
+**** RESUMING inverter.cir ****
+.INC "inverter.als"
+
+
+
+**** INCLUDING inverter.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V5            V5(+=$N_0001 -=0 )
+V_V10           V10(+=$N_0002 -=0 )
+M_M2            M2(d=$N_0001 g=$N_0002 s=Vout b=$N_0001 )
+M_M1            M1(d=Vout g=$N_0002 s=0 b=0 )
+_    _(Vout=Vout)
+.ENDALIASES
+
+
+**** RESUMING inverter.cir ****
+.probe
+
+
+.END
+
+**** FROM LIBRARY C:\Users\user\Documents\inverter.lib ****
+.model MbreakP-X PMOS(LEVEL=2VTo=-1.4 Kp=0.3m LAMBDA=0.05) 
+---------------------------------$
+ERROR -- '-1.4' is not a model parameter name
+
+.model MbreakN-X1 NMOS(LEVEL=2VTo=1.4 Kp=0.6m LAMBDA=0.05) 
+----------------------------------$
+ERROR -- '1.4' is not a model parameter name
+

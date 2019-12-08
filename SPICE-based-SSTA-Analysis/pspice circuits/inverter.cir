@@ -1,0 +1,25 @@
+* C:\Users\user\Documents\inverter.sch
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Jun 30 21:36:03 2018
+
+
+
+** Analysis setup **
+.DC LIN V_V5 0 10 1 
+.MC 10 DC V([Vout]) YMAX
+.OP 
+.LIB "C:\Users\user\Documents\inverter.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "inverter.net"
+.INC "inverter.als"
+
+
+.probe
+
+
+.END

@@ -1,0 +1,185 @@
+
+**** 06/30/18 02:41:35 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\try1.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Sat Jun 30 02:41:31 2018
+
+
+
+** Analysis setup **
+.MC 10 TRAN V([Vout]) YMAX
+.OP 
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "try1.net"
+
+**** INCLUDING try1.net ****
+* Schematics Netlist *
+
+
+
+V_V1         Vin 0   
+M_M2         $N_0001 Vin Vout $N_0001 MbreakP           
+V_V2         $N_0001 0   
+M_M1         Vout Vin 0 0 MbreakN           
+
+**** RESUMING try1.cir ****
+.INC "try1.als"
+
+
+
+**** INCLUDING try1.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_V1            V1(+=Vin -=0 )
+M_M2            M2(d=$N_0001 g=Vin s=Vout b=$N_0001 )
+V_V2            V2(+=$N_0001 -=0 )
+M_M1            M1(d=Vout g=Vin s=0 b=0 )
+_    _(Vin=Vin)
+_    _(Vout=Vout)
+.ENDALIASES
+
+
+**** RESUMING try1.cir ****
+.probe
+
+
+.END
+
+
+WARNING -- .MC or .WCASE ignored (No .TRAN command in circuit)
+**** 06/30/18 02:41:35 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\try1.sch
+
+
+ ****     MOSFET MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               MbreakP         MbreakN         
+               PMOS            NMOS            
+       LEVEL    1               1            
+           L  100.000000E-06  100.000000E-06 
+           W  100.000000E-06  100.000000E-06 
+         VTO    0               0            
+          KP   20.000000E-06   20.000000E-06 
+       GAMMA    0               0            
+         PHI     .6              .6          
+      LAMBDA    0               0            
+          IS   10.000000E-15   10.000000E-15 
+          JS    0               0            
+          PB     .8              .8          
+        PBSW     .8              .8          
+          CJ    0               0            
+        CJSW    0               0            
+        CGSO    0               0            
+        CGDO    0               0            
+        CGBO    0               0            
+         TOX    0               0            
+          XJ    0               0            
+       UCRIT   10.000000E+03   10.000000E+03 
+      DIOMOD    1               1            
+         VFB    0               0            
+        LETA    0               0            
+        WETA    0               0            
+          U0    0               0            
+        TEMP    0               0            
+         VDD    0               0            
+       XPART    0               0            
+
+
+**** 06/30/18 02:41:35 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\try1.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+(  Vin)    0.0000  ( Vout)    0.0000  ($N_0001)    0.0000                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_V1         0.000E+00
+    V_V2         0.000E+00
+
+    TOTAL POWER DISSIPATION   0.00E+00  WATTS
+
+
+**** 06/30/18 02:41:35 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\try1.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+
+******************************************************************************
+
+
+
+
+
+
+**** MOSFETS
+
+
+NAME         M_M2        M_M1      
+MODEL        MbreakP     MbreakN   
+ID           0.00E+00    0.00E+00 
+VGS          0.00E+00    0.00E+00 
+VDS          0.00E+00    0.00E+00 
+VBS          0.00E+00    0.00E+00 
+VTH          0.00E+00    0.00E+00 
+VDSAT        0.00E+00    0.00E+00 
+Lin0/Sat1   -1.00E+00   -1.00E+00 
+if          -1.00E+00   -1.00E+00 
+ir          -1.00E+00   -1.00E+00 
+TAU         -1.00E+00   -1.00E+00 
+GM           0.00E+00    0.00E+00 
+GDS          0.00E+00    0.00E+00 
+GMB          0.00E+00    0.00E+00 
+CBD          0.00E+00    0.00E+00 
+CBS          0.00E+00    0.00E+00 
+CGSOV        0.00E+00    0.00E+00 
+CGDOV        0.00E+00    0.00E+00 
+CGBOV        0.00E+00    0.00E+00 
+CGS          0.00E+00    0.00E+00 
+CGD          0.00E+00    0.00E+00 
+CGB          0.00E+00    0.00E+00 
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .06
+

@@ -1,0 +1,15 @@
+* OrCAD Model Editor - Version 9.1
+
+*$
+.model MbreakN-X NMOS( W=10u DEV=20%, L=1u DEV=20%, VTo=1.532 DEV=30%, 
++ Tox=100n DEV=10%) 
+*$
+.model MbreakP-X PMOS( W=10u DEV=20%, L=1u DEV=20%, VTo=-1.532 DEV=30%, 
++ Tox=100n DEV=10%) 
+*$
+.model MbreakP-X1 PMOS( W=10u DEV=20%, L=1u DEV=20%, VTo=-1.532 DEV=30%, 
++ Tox=100n DEV=10%) 
+*$
+.model MbreakN-X1 NMOS( W=10u DEV=20%, L=1u DEV=20%, VTo=1.532 DEV=30%, 
++ Tox=100n DEV=10%) 
+*$

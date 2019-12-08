@@ -1,0 +1,372 @@
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     CIRCUIT DESCRIPTION
+
+
+******************************************************************************
+
+
+
+
+* Schematics Version 9.1 - Web Update 1
+* Thu Jul 12 00:00:05 2018
+
+
+
+** Analysis setup **
+.DC LIN V_Vin 0 100 1 
+.MC 50 DC V([Vout]) YMAX
++  OUTPUT ALL
+.OP 
+.LIB "C:\Users\user\Documents\bjtinverters.lib"
+
+
+* From [PSPICE NETLIST] section of pspiceev.ini:
+.lib "nom.lib"
+
+.INC "bjtinverters.net"
+
+**** INCLUDING bjtinverters.net ****
+* Schematics Netlist *
+
+
+
+V_Vin         $N_0001 0   
+R_RC1         $N_0003 $N_0002 Rbreak 1k
+R_RC2         Vout $N_0002 Rbreak 1k
+V_VCC         0 $N_0002 5V
+R_RB1         $N_0004 $N_0001 Rbreak 1k
+R_RB2         $N_0005 $N_0003 Rbreak 1k
+Q_Q1         $N_0003 $N_0004 0 QbreakN-X 
+Q_Q2         Vout $N_0005 0 QbreakN-X 
+
+**** RESUMING bjtinverters.cir ****
+.INC "bjtinverters.als"
+
+
+
+**** INCLUDING bjtinverters.als ****
+* Schematics Aliases *
+
+.ALIASES
+V_Vin           Vin(+=$N_0001 -=0 )
+R_RC1           RC1(1=$N_0003 2=$N_0002 )
+R_RC2           RC2(1=Vout 2=$N_0002 )
+V_VCC           VCC(+=0 -=$N_0002 )
+R_RB1           RB1(1=$N_0004 2=$N_0001 )
+R_RB2           RB2(1=$N_0005 2=$N_0003 )
+Q_Q1            Q1(c=$N_0003 b=$N_0004 e=0 )
+Q_Q2            Q2(c=Vout b=$N_0005 e=0 )
+_    _(Vout=Vout)
+.ENDALIASES
+
+
+**** RESUMING bjtinverters.cir ****
+.probe
+
+
+.END
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     BJT MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               QbreakN-X       
+               NPN             
+          IS  100.000000E-18 
+          BF   75            
+          NF    1            
+          BR    1            
+          NR    1            
+          CN    2.42         
+           D     .87         
+
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     Resistor MODEL PARAMETERS
+
+
+******************************************************************************
+
+
+
+
+               Rbreak          
+           R    1            
+
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING Rbreak
+                       R_RC1           R_RC2           R_RB1           
+              R      1.0000E+00      1.0000E+00      1.0000E+00
+                      R_RB2           
+              R      1.0000E+00
+
+
+ **** CURRENT MODEL PARAMETERS FOR DEVICES REFERENCING QbreakN-X
+                       Q_Q1            Q_Q2            
+             BF      7.5000E+01      7.5000E+01
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     SMALL SIGNAL BIAS SOLUTION       TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO NOMINAL  
+
+******************************************************************************
+
+
+
+ NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE     NODE   VOLTAGE
+
+
+( Vout)   -3.7716  ($N_0001)    0.0000                   ($N_0002)   -5.0000    
+
+($N_0003)   -2.3957                   ($N_0004)   -1.6092                       
+
+($N_0005)   -3.0100                   
+
+
+
+
+    VOLTAGE SOURCE CURRENTS
+    NAME         CURRENT
+
+    V_Vin       -1.609E-03
+    V_VCC       -3.833E-03
+
+    TOTAL POWER DISSIPATION   1.92E-02  WATTS
+
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     OPERATING POINT INFORMATION      TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO NOMINAL  
+
+******************************************************************************
+
+
+
+
+
+
+**** BIPOLAR JUNCTION TRANSISTORS
+
+
+NAME         Q_Q1        Q_Q2      
+MODEL        QbreakN-X   QbreakN-X 
+IB           1.61E-03    6.14E-04 
+IC          -3.22E-03   -1.23E-03 
+VBE         -1.61E+00   -3.01E+00 
+VBC          7.87E-01    7.62E-01 
+VCE         -2.40E+00   -3.77E+00 
+BETADC      -2.00E+00   -2.00E+00 
+GM          -6.22E-02   -2.37E-02 
+RPI          7.50E+13    7.50E+13 
+RX           0.00E+00    0.00E+00 
+RO           1.61E+01    4.21E+01 
+CBE          0.00E+00    0.00E+00 
+CBC          0.00E+00    0.00E+00 
+CJS          0.00E+00    0.00E+00 
+BETAAC      -4.67E+12   -1.78E+12 
+CBX/CBX2     0.00E+00    0.00E+00 
+FT/FT2      -9.90E+17   -3.78E+17 
+
+
+**** 07/14/18 19:19:25 *********** Evaluation PSpice (Nov 1999) **************
+
+ * C:\Users\user\Documents\bjtinverters.sch
+
+
+ ****     SORTED DEVIATIONS OF V(Vout)     TEMPERATURE =   27.000 DEG C
+
+                      MONTE CARLO SUMMARY
+
+******************************************************************************
+
+
+
+
+
+Mean Deviation =    -.0542
+Sigma          =     .1045
+
+ RUN                    MAX DEVIATION FROM NOMINAL
+
+Pass   36                .3139  (3.00 sigma)  lower   at V_Vin =    4     
+                        ( 114.04% of Nominal)
+
+Pass   34                .189   (1.81 sigma)  lower   at V_Vin =    3     
+                        ( 107.3 % of Nominal)
+
+Pass   39                .1783  (1.71 sigma)  lower   at V_Vin =    3     
+                        ( 106.89% of Nominal)
+
+Pass   22                .1726  (1.65 sigma)  lower   at V_Vin =    4     
+                        ( 107.72% of Nominal)
+
+Pass    8                .1694  (1.62 sigma)  lower   at V_Vin =  100   
+                        ( 107.78% of Nominal)
+
+Pass   20                .169   (1.62 sigma)  lower   at V_Vin =    3     
+                        ( 106.53% of Nominal)
+
+Pass   45                .1642  (1.57 sigma)  lower   at V_Vin =    3     
+                        ( 106.35% of Nominal)
+
+Pass   26                .1606  (1.54 sigma)  lower   at V_Vin =    4     
+                        ( 107.19% of Nominal)
+
+Pass    6                .1563  (1.50 sigma)  lower   at V_Vin =  100   
+                        ( 107.18% of Nominal)
+
+Pass    7                .153   (1.46 sigma)  higher  at V_Vin =    3     
+                        (  94.089% of Nominal)
+
+Pass   31                .1486  (1.42 sigma)  higher  at V_Vin =  100   
+                        (  93.174% of Nominal)
+
+Pass   15                .1466  (1.40 sigma)  lower   at V_Vin =    4     
+                        ( 106.56% of Nominal)
+
+Pass   37                .1374  (1.31 sigma)  lower   at V_Vin =  100   
+                        ( 106.31% of Nominal)
+
+Pass    2                .1363  (1.30 sigma)  lower   at V_Vin =    3     
+                        ( 105.27% of Nominal)
+
+Pass    3                .129   (1.23 sigma)  higher  at V_Vin =    3     
+                        (  95.017% of Nominal)
+
+Pass   10                .1288  (1.23 sigma)  lower   at V_Vin =  100   
+                        ( 105.91% of Nominal)
+
+Pass   43                .1281  (1.23 sigma)  lower   at V_Vin =    3     
+                        ( 104.95% of Nominal)
+
+Pass   16                .1262  (1.21 sigma)  lower   at V_Vin =  100   
+                        ( 105.8 % of Nominal)
+
+Pass   49                .1121  (1.07 sigma)  higher  at V_Vin =  100   
+                        (  94.85 % of Nominal)
+
+Pass   47                .1105  (1.06 sigma)  higher  at V_Vin =  100   
+                        (  94.925% of Nominal)
+
+Pass   11                .1047  (1.00 sigma)  lower   at V_Vin =    3     
+                        ( 104.05% of Nominal)
+
+Pass   30                .102   ( .98 sigma)  lower   at V_Vin =  100   
+                        ( 104.69% of Nominal)
+
+Pass   17                .1012  ( .97 sigma)  lower   at V_Vin =    3     
+                        ( 103.91% of Nominal)
+
+Pass   38                .1012  ( .97 sigma)  lower   at V_Vin =    3     
+                        ( 103.91% of Nominal)
+
+Pass   25                .0968  ( .93 sigma)  lower   at V_Vin =  100   
+                        ( 104.44% of Nominal)
+
+Pass    5                .0942  ( .90 sigma)  higher  at V_Vin =  100   
+                        (  95.673% of Nominal)
+
+Pass   24                .0927  ( .89 sigma)  lower   at V_Vin =  100   
+                        ( 104.26% of Nominal)
+
+Pass   18                .0851  ( .81 sigma)  lower   at V_Vin =  100   
+                        ( 103.91% of Nominal)
+
+Pass   13                .0845  ( .81 sigma)  higher  at V_Vin =  100   
+                        (  96.119% of Nominal)
+
+Pass   41                .0819  ( .78 sigma)  lower   at V_Vin =    3     
+                        ( 103.16% of Nominal)
+
+Pass   21                .0779  ( .75 sigma)  lower   at V_Vin =    3     
+                        ( 103.01% of Nominal)
+
+Pass   29                .0768  ( .73 sigma)  higher  at V_Vin =    3     
+                        (  97.034% of Nominal)
+
+Pass   48                .0764  ( .73 sigma)  higher  at V_Vin =    3     
+                        (  97.046% of Nominal)
+
+Pass   14                .0716  ( .68 sigma)  lower   at V_Vin =  100   
+                        ( 103.29% of Nominal)
+
+Pass   23                .069   ( .66 sigma)  lower   at V_Vin =  100   
+                        ( 103.17% of Nominal)
+
+Pass   46                .0675  ( .65 sigma)  lower   at V_Vin =  100   
+                        ( 103.1 % of Nominal)
+
+Pass   35                .0667  ( .64 sigma)  lower   at V_Vin =    3     
+                        ( 102.58% of Nominal)
+
+Pass   42                .063   ( .60 sigma)  lower   at V_Vin =  100   
+                        ( 102.89% of Nominal)
+
+Pass   28                .0622  ( .60 sigma)  lower   at V_Vin =    3     
+                        ( 102.4 % of Nominal)
+
+Pass   40                .0616  ( .59 sigma)  lower   at V_Vin =  100   
+                        ( 102.83% of Nominal)
+
+Pass   19                .0612  ( .59 sigma)  lower   at V_Vin =    3     
+                        ( 102.37% of Nominal)
+
+Pass    4                .0591  ( .57 sigma)  higher  at V_Vin =    3     
+                        (  97.718% of Nominal)
+
+Pass   44                .0588  ( .56 sigma)  higher  at V_Vin =    3     
+                        (  97.726% of Nominal)
+
+Pass   33                .0498  ( .48 sigma)  higher  at V_Vin =    3     
+                        (  98.075% of Nominal)
+
+Pass    9                .029   ( .28 sigma)  higher  at V_Vin =    3     
+                        (  98.878% of Nominal)
+
+Pass   27                .0285  ( .27 sigma)  higher  at V_Vin =    3     
+                        (  98.899% of Nominal)
+
+Pass   50                .0282  ( .27 sigma)  lower   at V_Vin =    3     
+                        ( 101.09% of Nominal)
+
+Pass   12                .0118  ( .11 sigma)  higher  at V_Vin =  100   
+                        (  99.456% of Nominal)
+
+Pass   32              4.3225E-03  ( .04 sigma)  lower   at V_Vin =    3     
+                        ( 100.17% of Nominal)
+
+
+
+          JOB CONCLUDED
+
+          TOTAL JOB TIME             .39
+
